@@ -1,32 +1,34 @@
 import React, { useState } from "react";
 import { Alert, Button, Card } from "react-bootstrap";
-import { useAuth } from "../contexts/AuthContext";
+import { useAuth } from "../../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
+import CenteredContainer from "./CenteredContainer";
 
-export default function Dashboard() {
+export default function Profile() {
   const [error, setError] = useState("");
   const { currentUser, logout } = useAuth();
-  const history =useHistory();
+  const history = useHistory();
 
-async function handleLogout() {
-      setError('');
+  async function handleLogout() {
+    setError("");
 
-      try{
-          await logout();
-          history.push("/login");
-      }
-      catch{
-          setError("Failed to log out");
-      }
+    try {
+      await logout();
+      history.push("/login");
+    } catch {
+      setError("Failed to log out");
+    }
   }
   return (
-    <>
+    <CenteredContainer>
       <Card>
         <Card.Body>
           <h2 className="text-center mb-4">Profile</h2>
           {error && <Alert variant="danger">{error}</Alert>}
           <b>Email:</b> <i>{currentUser.email}</i>
-          <Link to="/update-profile" className="btn btn-primary w-100 mt-3" >Update Profile</Link>
+          <Link to="/update-profile" className="btn btn-primary w-100 mt-3">
+            Update Profile
+          </Link>
         </Card.Body>
       </Card>
 
@@ -35,6 +37,6 @@ async function handleLogout() {
           Log Out
         </Button>
       </div>
-    </>
+    </CenteredContainer>
   );
 }
