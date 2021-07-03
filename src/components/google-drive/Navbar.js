@@ -1,20 +1,29 @@
 import React from "react";
-import { Navbar, Nav, Container } from "react-bootstrap";
+import { Navbar, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGoogleDrive } from "@fortawesome/free-brands-svg-icons";
 
 export default function NavbarComponent() {
   return (
-    <Navbar bg="light" expand="sm" style={{ marginBottom: 20 }}>
-      <Container style={{ paddingLeft: 0, paddingRight: 0, marginTop: 10 }}>
-        <Navbar.Brand as={Link} to="/">
-          &nbsp; G-Drive
-        </Navbar.Brand>
-        <Nav>
-          <Nav.Link as={Link} to="/user">
-            Profile
-          </Nav.Link>
-        </Nav>
-      </Container>
+    <Navbar
+      expand=""
+      style={{
+        paddingLeft: 20,
+        paddingRight: 20,
+        marginBottom: 10,
+        backgroundColor: "#eeeeee",
+      }}
+    >
+      <Navbar.Brand as={Link} to="/" style={{ fontSize: "28px" }}>
+        <FontAwesomeIcon icon={faGoogleDrive} />
+        &nbsp; G-Drive
+      </Navbar.Brand>
+      <Nav>
+        <Nav.Link as={Link} to="/user" style={{ fontSize: "20px" }}>
+          My Profile
+        </Nav.Link>
+      </Nav>
     </Navbar>
   );
 }
