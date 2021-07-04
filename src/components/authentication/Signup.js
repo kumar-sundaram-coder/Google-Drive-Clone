@@ -3,6 +3,9 @@ import { Form, Button, Card, Alert } from "react-bootstrap";
 import { useAuth } from "../../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
 import CenteredContainer from "./CenteredContainer";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser, faUserTag } from "@fortawesome/free-solid-svg-icons";
+import Navbar from "./Navbar_2";
 
 export default function Signup() {
   const emailRef = useRef();
@@ -30,34 +33,55 @@ export default function Signup() {
   }
 
   return (
-    <CenteredContainer>
-      <Card>
-        <Card.Body>
-          <h2 className="text-center mb-4">Sign Up</h2>
-          {error && <Alert variant="danger">{error}</Alert>}
-          <Form onSubmit={handleSubmit}>
-            <Form.Group id="email" className="mb-2">
-              <Form.Label>Email</Form.Label>
-              <Form.Control type="email" ref={emailRef} required />
-            </Form.Group>
-            <Form.Group id="password" className="mb-2">
-              <Form.Label>Password</Form.Label>
-              <Form.Control type="password" ref={passwordRef} required />
-            </Form.Group>
-            <Form.Group id="password-confirm" className="mb-4">
-              <Form.Label>Password Confirmation</Form.Label>
-              <Form.Control type="password" ref={passwordConfirmRef} required />
-            </Form.Group>
-            <Button disabled={loading} type="submit" className="w-100">
-              Sign Up
-            </Button>
-          </Form>
-        </Card.Body>
-      </Card>
+    <>
+      <Navbar />
+      <CenteredContainer>
+        <Card>
+          <Card.Body>
+            <h2 className="text-center mb-4">Sign Up</h2>
+            {error && <Alert variant="danger">{error}</Alert>}
+            <Form onSubmit={handleSubmit}>
+              <Form.Group id="email" className="mb-2">
+                <Form.Label>Email</Form.Label>
+                <Form.Control type="email" ref={emailRef} required />
+              </Form.Group>
+              <Form.Group id="password" className="mb-2">
+                <Form.Label>Password</Form.Label>
+                <Form.Control type="password" ref={passwordRef} required />
+              </Form.Group>
+              <Form.Group id="password-confirm" className="mb-3">
+                <Form.Label>Confirm Password</Form.Label>
+                <Form.Control
+                  type="password"
+                  ref={passwordConfirmRef}
+                  required
+                />
+              </Form.Group>
+              <Button disabled={loading} type="submit" className="w-100 mb-1">
+                <FontAwesomeIcon
+                  style={{ marginRight: "6px" }}
+                  icon={faUserTag}
+                />
+                Sign Up
+              </Button>
+            </Form>
+          </Card.Body>
+        </Card>
 
-      <div className="w-100 text-center mt-2">
-        Already have an account? <Link to="/login">Log In</Link>
-      </div>
-    </CenteredContainer>
+        <div className="w-100 text-center mt-3">
+          <p className="d-inline" style={{ fontSize: "18px" }}>
+            Already have an account?
+          </p>
+          <Link
+            to="/login"
+            style={{ marginLeft: "15px", fontSize: "11px" }}
+            className="btn btn-outline-dark"
+          >
+            <FontAwesomeIcon style={{ marginRight: "8px" }} icon={faUser} />
+            Log In
+          </Link>
+        </div>
+      </CenteredContainer>
+    </>
   );
 }

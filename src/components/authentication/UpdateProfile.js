@@ -76,7 +76,10 @@ export default function UpdateProfile() {
               />
             </Form.Group>
             <Button disabled={loading} type="submit" className="w-100">
-            <FontAwesomeIcon style={{ marginRight: "10px" }} icon={faUserEdit} />
+              <FontAwesomeIcon
+                style={{ marginRight: "10px" }}
+                icon={faUserEdit}
+              />
               Update
             </Button>
           </Form>
@@ -85,7 +88,10 @@ export default function UpdateProfile() {
 
       <div className="w-100 text-center mt-2">
         <Link to="/user" className="btn btn-outline-danger">
-        <FontAwesomeIcon style={{ marginRight: "10px" }} icon={faWindowClose} />
+          <FontAwesomeIcon
+            style={{ marginRight: "10px" }}
+            icon={faWindowClose}
+          />
           Cancel
         </Link>
       </div>
