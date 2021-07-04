@@ -3,6 +3,8 @@ import { Form, Button, Card, Alert } from "react-bootstrap";
 import { useAuth } from "../../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
 import CenteredContainer from "./CenteredContainer";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUserEdit, faWindowClose } from "@fortawesome/free-solid-svg-icons";
 
 export default function UpdateProfile() {
   const emailRef = useRef();
@@ -74,6 +76,7 @@ export default function UpdateProfile() {
               />
             </Form.Group>
             <Button disabled={loading} type="submit" className="w-100">
+            <FontAwesomeIcon style={{ marginRight: "10px" }} icon={faUserEdit} />
               Update
             </Button>
           </Form>
@@ -81,7 +84,10 @@ export default function UpdateProfile() {
       </Card>
 
       <div className="w-100 text-center mt-2">
-        <Link to="/user">Cancel</Link>
+        <Link to="/user" className="btn btn-outline-danger">
+        <FontAwesomeIcon style={{ marginRight: "10px" }} icon={faWindowClose} />
+          Cancel
+        </Link>
       </div>
     </CenteredContainer>
   );
