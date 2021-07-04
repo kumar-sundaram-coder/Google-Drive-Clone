@@ -47,7 +47,7 @@ export default function AddFolderButton({ currentFolder }) {
         onClick={openModal}
         variant="outline-success"
         size="lg"
-        style={{ marginRight: "5px" }}
+        style={{ marginRight: "5px", marginLeft: "13px" }}
       >
         <FontAwesomeIcon icon={faFolderPlus} />
       </Button>

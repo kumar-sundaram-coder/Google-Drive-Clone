@@ -40,15 +40,21 @@ export default function ForgotPassword() {
       <CenteredContainer>
         <Card>
           <Card.Body>
-            <h2 className="text-center mb-4">Forgot Password</h2>
+            <h2 className="text-center mb-3">Forgot Password</h2>
             {error && <Alert variant="danger">{error}</Alert>}
             {message && <Alert variant="success">{message}</Alert>}
+            <img
+              src="./Anonymous.png"
+              class="mx-auto d-block mb-4"
+              style={{ width: "80px", height: "80px" }}
+              alt="User_pic"
+            ></img>
             <Form onSubmit={handleSubmit}>
               <Form.Group id="email" className="mb-2">
                 <Form.Label>Email</Form.Label>
                 <Form.Control type="email" ref={emailRef} required />
               </Form.Group>
-              <Button disabled={loading} type="submit" className="w-100 mt-3">
+              <Button disabled={loading} type="submit" className="w-100 mt-2 mb-2">
                 <FontAwesomeIcon
                   style={{ marginRight: "12px" }}
                   icon={faPaperPlane}
@@ -57,7 +63,7 @@ export default function ForgotPassword() {
               </Button>
             </Form>
 
-            <div className=" text-center mt-3">
+            <div className=" text-center mt-2 mb-2">
               <Link
                 to="/login"
                 style={{ fontSize: "14px" }}
@@ -73,7 +79,7 @@ export default function ForgotPassword() {
           </Card.Body>
         </Card>
 
-        <div className="w-100 text-center mt-2">
+        <div className="w-100 text-center mt-3">
           <p className="d-inline" style={{ fontSize: "18px" }}>
             Need an account?
           </p>

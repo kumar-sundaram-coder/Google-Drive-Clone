@@ -38,8 +38,14 @@ export default function Signup() {
       <CenteredContainer>
         <Card>
           <Card.Body>
-            <h2 className="text-center mb-4">Sign Up</h2>
+            <h2 className="text-center mb-3">Sign Up</h2>
             {error && <Alert variant="danger">{error}</Alert>}
+            <img
+              src="./Anonymous.png"
+              class="mx-auto d-block"
+              style={{ width: "80px", height: "80px" }}
+              alt="User_pic"
+            ></img>
             <Form onSubmit={handleSubmit}>
               <Form.Group id="email" className="mb-2">
                 <Form.Label>Email</Form.Label>

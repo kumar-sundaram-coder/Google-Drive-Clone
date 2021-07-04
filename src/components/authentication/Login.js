@@ -39,8 +39,14 @@ export default function Login() {
       <CenteredContainer>
         <Card>
           <Card.Body>
-            <h2 className="text-center mb-4">Log In</h2>
+            <h2 className="text-center mb-3">Log In</h2>
             {error && <Alert variant="danger">{error}</Alert>}
+            <img
+              src="./Anonymous.png"
+              class="mx-auto d-block"
+              style={{ width: "80px", height: "80px" }}
+              alt="User_pic"
+            ></img>
             <Form onSubmit={handleSubmit}>
               <Form.Group id="email" className="mb-2">
                 <Form.Label>Email</Form.Label>

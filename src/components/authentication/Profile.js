@@ -32,7 +32,7 @@ export default function Profile() {
             {error && <Alert variant="danger">{error}</Alert>}
             <img
               src="./Anonymous.png"
-              class="rounded-circle mx-auto d-block mb-5"
+              class="mx-auto d-block mb-3"
               style={{ width: "80px", height: "80px" }}
               alt="User_pic"
             ></img>
